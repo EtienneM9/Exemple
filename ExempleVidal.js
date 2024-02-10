@@ -1,5 +1,12 @@
 import React, { useState, useEffect } from 'react';
+//voici un bout de code représentant la vérification de compatibilité entre médicaments
+//en utilisant l'api vidal
+//Le code n'est pas fonctionnel car nous n'avons pas encore de clé d'api.
 
+
+//fonctionnement:
+// dès qu'un lédicament de la liste change, le useeffect est déclancher
+//Celui ci vas alors utiliser vidal pour vérifier les compatibilités.
 const MedicationCompatibility = () => {
   const [medications, setMedications] = useState([]);
   const [compatibility, setCompatibility] = useState([]);
@@ -14,7 +21,7 @@ const MedicationCompatibility = () => {
           body: JSON.stringify(medications),
           headers: {
             'Content-Type': 'application/json',
-            'Authorization': 'Bearer YOUR_API_KEY' // Remplacez YOUR_API_KEY par votre clé d'API Vidal
+            'Authorization': 'Bearer API_KEY' // Remplacer API_KEY par la clé d'API Vidal
           }
         });
 
@@ -46,7 +53,7 @@ const MedicationCompatibility = () => {
         <option value="medication1">Médicament 1</option>
         <option value="medication2">Médicament 2</option>
         <option value="medication3">Médicament 3</option>
-        {/* Ajoutez d'autres options de médicaments selon vos besoins */}
+        {/* Ajoutez d'autres options de médicaments selon les besoins */}
       </select>
       <div>
         <h3>Résultat de la compatibilité des médicaments :</h3>
